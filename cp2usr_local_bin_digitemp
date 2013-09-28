@@ -1,0 +1,8 @@
+# !/bin/sh
+# Script to copy the latest digitemp config & script files 
+# to /usr/local/bin/digitemp/
+
+DIGITEMP_BINARY_PATH="/usr/local/bin/digitemp"
+
+echo $(cp -vf digitemp.cfg ${DIGITEMP_BINARY_PATH}/digitemp.cfg) 
+echo $(cp -vf digitemp_mysql.pl ${DIGITEMP_BINARY_PATH}/digitemp_mysql.pl)

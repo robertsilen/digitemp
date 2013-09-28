@@ -1,0 +1,69 @@
+##########################################################################
+# $Id: README,v 1.3 2006-11-13 09:36:58 KoantdebAdminAnttiKoivisto Exp $
+##########################################################################
+#
+# digitemp_mysql.pl README file
+#
+##########################################################################
+# $Log: README,v $
+# Revision 1.3  2006-11-13 09:36:58  KoantdebAdminAnttiKoivisto
+# File locations updatedManual operation instructions added
+#
+# Revision 1.2  2006-11-13 08:40:07  KoantdebAdminAnttiKoivisto
+# *** empty log message ***
+#
+# Revision 1.1  2005/11/03 12:01:32  ak
+# README & other usage information written
+#
+##########################################################################
+		MySQL database logging of temperatures.
+		
+		FILE LOCATIONS:
+		DS_XXXX binary: /usr/local/bin/digitemp/digitemp
+		config file: /usr/local/bin/digitemp/digitemp.cfg
+		Mysql perl script file: /usr/local/bin/digitemp/digitemp_mysql.pl
+		
+		NORMAL OPERATION:
+		The operation goies like this:
+		cron (anacron) executes the digitemp_mysql.pl script 
+		which uses the digitemp binary 
+		which uses the cofig file
+		
+		MANUAL OPERATION:
+		the perl script can be run by hand with -d/-v options for debugging
+		the digitemp binary can be run by hand with -s /dev/ttyS0 and other options
+		
+		INSTALLATION:
+		
+		Create a new database named digitemp:
+		mysqladmin create digitemp -u root -p
+
+		Edit the mysql_grant_rights.sql file and change the password and
+		optionally the username. Grant access to the new database:
+
+		mysql mysql -u root -p < mysql_grant_rights.sql
+
+		Create the database tables:
+
+		mysql digitemp -u root -p < mysql_create_tables.sql
+		
+		See also the digitempdump.sql
+
+		Edit the digitemp_mysql.pl script. Change the password to the
+		one you used above, optionally change the username.
+		Point the digitemp_rcfile variable to the DigiTemp config file
+		that you have previously created using digitemp -i -c rcfile
+
+		I recommend using one other than .digitemprc so that it isn't
+		accidently erased when you run digitemp -i from your home
+		directory.
+
+		Make sure the path to the digitemp binary is correct. It is
+		specified by the $digitemp_binary variable.
+		You could copy the /usr/bin/digitemp_DS????? to /usr/lib/bin/digitemp/digitemp
+
+		Setup a cron job to log temperatures to the database at
+		regular intervals (in /etc/crontab):
+
+		*/5 * * * *   /usr/lib/bin/digitemp/digitemp_mysql.pl
+
