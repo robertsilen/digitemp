@@ -1,21 +1,8 @@
-##########################################################################
-# $Id: README,v 1.3 2006-11-13 09:36:58 KoantdebAdminAnttiKoivisto Exp $
-##########################################################################
-#
-# digitemp_mysql.pl README file
-#
-##########################################################################
-# $Log: README,v $
-# Revision 1.3  2006-11-13 09:36:58  KoantdebAdminAnttiKoivisto
-# File locations updatedManual operation instructions added
-#
-# Revision 1.2  2006-11-13 08:40:07  KoantdebAdminAnttiKoivisto
-# *** empty log message ***
-#
-# Revision 1.1  2005/11/03 12:01:32  ak
-# README & other usage information written
-#
-##########################################################################
+##############
+1-wire temperature sensor polling and data logging to mysq db.
+Coded in 2006.
+##############
+
 		MySQL database logging of temperatures.
 		
 		FILE LOCATIONS:
