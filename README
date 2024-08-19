@@ -1,14 +1,14 @@
 ##############
-1-wire temperature sensor polling and data logging to mysq db.
+1-wire temperature sensor polling and data logging to MySQL/MariaDB.
 Coded in 2006.
 ##############
 
-		MySQL database logging of temperatures.
+		MySQL/MariaDB database logging of temperatures.
 		
 		FILE LOCATIONS:
 		DS_XXXX binary: /usr/local/bin/digitemp/digitemp
 		config file: /usr/local/bin/digitemp/digitemp.cfg
-		Mysql perl script file: /usr/local/bin/digitemp/digitemp_mysql.pl
+		MySQL/MariaDB perl script file: /usr/local/bin/digitemp/digitemp_mysql.pl
 		
 		NORMAL OPERATION:
 		The operation goies like this:
